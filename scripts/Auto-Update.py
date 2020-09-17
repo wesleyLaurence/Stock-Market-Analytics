@@ -1,5 +1,7 @@
 """
+
 This program records live stock prices from Yahoo Finance API and stores the data in a MongoDB Atlas database.
+
 """
 
 from StockMarket import Stock_Model
