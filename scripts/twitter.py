@@ -6,10 +6,10 @@ import getpass
 from pymongo import MongoClient
 from datetime import datetime
 
-ACCESS_TOKEN = "587027562-H3ZJZjDMrOtCwLzUPHEidV2CfylvKLqwOsjxp2qV"
-ACCESS_TOKEN_SECRET = "M0rof5BDPPPr3PJMPr8bMOP5WrA8ZDE1XJBJx3l2BMGl7"
-CONSUMER_KEY = "oxebviXG3MP8M7FnnPAdg8Z3x"
-CONSUMER_SECRET = "NfF2vCIsaTYC3dNn9NMuAEubs1PXJHbsUydVmBLVeOgXlXyUje"
+ACCESS_TOKEN = ""
+ACCESS_TOKEN_SECRET = ""
+CONSUMER_KEY = ""
+CONSUMER_SECRET = ""
 
 def process_tweet(data):
     
