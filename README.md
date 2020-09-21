@@ -5,9 +5,9 @@ Python toolkit for live stock market analysis and visualization
 - Access company financials
 - Visualize market trends
 - Extract Data From:
-            - Yahoo_Finance
-            - Wikipedia 
-            - Twitter
+    * Yahoo_Finance
+    * Wikipedia 
+    * Twitter
 
 Features in Development:
 - Power BI & Tableau dashboards
