@@ -1,19 +1,24 @@
-from yahoo_fin import stock_info as si
+from data_model import Data_Model
 import pymongo
 from pymongo import MongoClient
-from datetime import datetime
+from yahoo_fin import stock_info as si
 import wikipedia
-import getpass
-import json
-import time
-from datetime import datetime
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
-from data_model import Data_Model
+import json
+from datetime import datetime
+import time
+import getpass
 
 class Dashboard:
+    
+    """ 
+    
+    Analytics Dashboard to visualize live stock prices, company financials and market trends
+    
+    """
     
     def __init__(self, watch_list=[]):
         
