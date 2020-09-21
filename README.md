@@ -1,5 +1,5 @@
 # Stock-Market-Analytics
-Python toolkit for live stock market analysis and visualization
+System for live stock market analysis and visualization
 - Integrated with MongoDB Atlas cloud database
 - Visualize stock prices in real time using Jupyter Notebook
 - Access company financials
