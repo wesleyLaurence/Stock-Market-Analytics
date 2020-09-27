@@ -2,8 +2,7 @@
 System for live/historical stock market analysis and visualization
 - Integrated with MongoDB Atlas cloud database
 - Visualize stock prices in real time using Jupyter Notebook
-- Access company financials
-- Visualize market trends
+- Access & Visualize company financials and stock market information
 - Extract Data From:
     * Yahoo_Finance
     * Wikipedia 
