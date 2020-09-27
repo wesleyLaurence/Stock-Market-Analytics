@@ -1,6 +1,6 @@
 # Stock-Market-Analytics
 System for live/historical stock market analysis and visualization. 
-In depth company information
+- Access important company information
 - Integrated with MongoDB Atlas cloud database
 - Visualize stock prices in real time using Jupyter Notebook
 - Access & Visualize company financials and stock market information
