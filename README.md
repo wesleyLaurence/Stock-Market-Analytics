@@ -11,5 +11,5 @@ System for live/historical stock market analysis and visualization.
 Features in Development:
 - Power BI & Tableau dashboards
 - Twitter sentiment analysis
-- Machine learning models to predict price
+- Machine learning models for predictive analytics
 - Flask REST API and web app
