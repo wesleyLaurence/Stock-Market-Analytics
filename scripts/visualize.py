@@ -266,7 +266,7 @@ class Visualize:
         ax.set_ylabel('Share Price $')
         
         
-    def plot_income_statement(self, metric):
+    def plot_income_statement(self, symbol, metric):
         """
         METRICS
         
@@ -339,7 +339,7 @@ class Visualize:
         ax.set_xticklabels(X_labs)
         ax.set_xticks(X_vals)
 
-        title = self.symbol.upper() + ' ' + metric
+        title = symbol.upper() + ' ' + metric
         ax.set_title(title)
         ax.set_ylabel(metric+' $')
         ax.set_xlabel('Year')
