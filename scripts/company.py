@@ -1,6 +1,6 @@
 """ 
 
-Company - GET methods, access to MongoDB Atlas databases: Company Info and Stocks
+Company - Get methods, access to MongoDB Atlas databases: Company Info and Stocks
 
 """
     
