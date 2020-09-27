@@ -1,6 +1,6 @@
 """ 
     
-    Unit tests to ensure system components are working properly.
+    Unit tests to ensure system components are functioning properly.
 
     Test Categories:
         - Company
