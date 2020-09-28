@@ -1,11 +1,11 @@
 """ 
 
-Company - Get methods, access to MongoDB Atlas databases: Company Info and Stocks
+    Company - GET methods, access to MongoDB Atlas databases: Company Info and Stocks
 
 """
     
 # import libraries
-from security import Security
+from .security import Security
 import pymongo
 from pymongo import MongoClient
 from datetime import datetime
@@ -14,6 +14,7 @@ import time
 from datetime import datetime
 import pandas as pd
 import numpy as np
+import pkg_resources
 
 class Company:
     """ 
@@ -23,9 +24,10 @@ class Company:
     def __init__(self, _admin):
         
         self._admin = _admin
-        
+    
         # ticker--> company data
-        ticker_df = pd.read_csv("stock_symbols.csv", encoding="latin1")
+        stream = pkg_resources.resource_stream(__name__, 'data/stock_symbols.csv')
+        ticker_df = pd.read_csv(stream, encoding='latin-1')
         ticker_list = list(ticker_df['Symbol'])
         ticker_companies = list(ticker_df['CompanyName'])
         self.company_tickers = dict(zip(ticker_list,ticker_companies))

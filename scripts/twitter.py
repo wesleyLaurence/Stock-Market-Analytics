@@ -16,7 +16,7 @@ from pymongo import MongoClient
 from datetime import datetime
 
 # twitter credentials
-from _secret import twitter_credentials
+from .secret import twitter_credentials
 tc = twitter_credentials()
 ACCESS_TOKEN = tc.access_token
 ACCESS_TOKEN_SECRET = tc.access_token_secret

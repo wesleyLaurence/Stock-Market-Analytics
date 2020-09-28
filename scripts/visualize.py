@@ -6,9 +6,9 @@
     
 """
 
-from company import Company
-from market import Market
-from security import Security
+from .company import Company
+from .market import Market
+from .security import Security
 from pymongo import MongoClient
 import pymongo
 import json
@@ -81,6 +81,7 @@ class Visualize:
             y = data
             
             # generate plot
+            ax1.set_xticks(np.arange(len(x_axis_labels)))
             ax1.set_xticklabels(x_axis_labels)
             ax1.cla()
             ax1.plot_date(x, y, color='springgreen', linestyle='solid', marker='None')
@@ -199,8 +200,7 @@ class Visualize:
                 
                 date_today = str(datetime.date(datetime.now()))
                 axs[2].set_xlabel(date_today)
-                
-                
+
                 
                 if i == 2:
                     
@@ -242,21 +242,21 @@ class Visualize:
             for index_label in xticklabels:
                 value = int(X_labels[index_label].split('-')[0])
                 xlabels_.append(value)
-                ax.set_xlabel('Year')
+                
+            ax.set_xlabel('Year')
 
         elif zoom_level == '1 year' or zoom_level == '3 month':
             for index_label in xticklabels:
                 year = int(X_labels[index_label].split('-')[0])
                 month = int(X_labels[index_label].split('-')[1])
                 label = str(month) + '/' + str(year)[2:]
-                ax.set_xlabel('Month')
-
-                #value = int(X_labels[index_label].split('-')[0])
                 xlabels_.append(label)
+                
+            ax.set_xlabel('Month')
+      
         ax.set_facecolor('whitesmoke')
-        ax.set_xticklabels(xlabels_)
         ax.set_xticks(xticklabels)
-
+        ax.set_xticklabels(xlabels_)
 
         # plot
         ax.plot(X_values, Y, color='springgreen')
@@ -336,8 +336,8 @@ class Visualize:
         ax.plot(X_vals, Y, color='springgreen')
 
         # plot settings
-        ax.set_xticklabels(X_labs)
         ax.set_xticks(X_vals)
+        ax.set_xticklabels(X_labs)
 
         title = symbol.upper() + ' ' + metric
         ax.set_title(title)

@@ -6,7 +6,7 @@
 
 """
 
-from security import Security
+from .security import Security
 import pymongo
 from pymongo import MongoClient
 import pandas as pd
@@ -15,6 +15,7 @@ import json
 import matplotlib.pyplot as plt
 from datetime import datetime
 import time
+import pkg_resources
 
 class Market:
 
@@ -23,7 +24,8 @@ class Market:
         self._admin = _admin
         
         # ticker--> company data
-        ticker_df = pd.read_csv("stock_symbols.csv", encoding="latin1")
+        stream = pkg_resources.resource_stream(__name__, 'data/stock_symbols.csv')
+        ticker_df = pd.read_csv(stream, encoding='latin-1')
         ticker_list = list(ticker_df['Symbol'])
         ticker_companies = list(ticker_df['CompanyName'])
         self.company_tickers = dict(zip(ticker_list,ticker_companies))
@@ -73,18 +75,18 @@ class Market:
         
         return results
     
-    def get_day_gainers(self, date, data_type='dict'):
+    def day_gainers(self, date, data_type='dict'):
         data = self.get(date, 'Market','Day_Gainers')
         return self.data_bundle(data, data_type)
     
-    def get_day_losers(self, date, data_type='dict'):
+    def day_losers(self, date, data_type='dict'):
         data = self.get(date, 'Market','Day_Losers')
         return self.data_bundle(data, data_type)
     
-    def get_top_crypto(self, date, data_type='dict'):
+    def top_crypto(self, date, data_type='dict'):
         data = self.get(date, 'Market','Top_Crypto')
         return self.data_bundle(data, data_type)
     
-    def get_most_active(self, date, data_type='dict'):
+    def most_active(self, date, data_type='dict'):
         data = self.get(date, 'Market','Most_Active')
         return self.data_bundle(data, data_type)

@@ -8,7 +8,7 @@
     
 """
 
-from security import Security
+from .security import Security
 from yahoo_fin import stock_info as si
 import pymongo
 from pymongo import MongoClient
@@ -21,18 +21,20 @@ from datetime import datetime
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import pkg_resources
 
 class Update:
     
     def __init__(self, watch_list=[]):
 
-        s = Security()
-        s.encrypt()
+        self.s = Security()
+        self._admin = self.s.encrypt()
         
         self.watch_list = watch_list
         
         # ticker--> company data
-        ticker_df = pd.read_csv("stock_symbols.csv", encoding="latin1")
+        stream = pkg_resources.resource_stream(__name__, 'data/stock_symbols.csv')
+        ticker_df = pd.read_csv(stream, encoding='latin-1')
         ticker_list = list(ticker_df['Symbol'])
         ticker_companies = list(ticker_df['CompanyName'])
         self.company_tickers = dict(zip(ticker_list,ticker_companies))
@@ -71,7 +73,7 @@ class Update:
                                  'Stats','Stats_Valuation','Twitter','Wiki',
                                  'Yearly_Balance_Sheet']:         
 
-            client_connect = "mongodb+srv://wesley:{}@stock-analytics.vmxv5.mongodb.net/{}?retryWrites=true&w=majority".format(self.password, collection_title)
+            client_connect = "mongodb+srv://wesley:{}@stock-analytics.vmxv5.mongodb.net/{}?retryWrites=true&w=majority".format(self.s.decrypt(self._admin), collection_title)
             cluster = MongoClient(client_connect)
             db = cluster['Stocks']
             collection = db[collection_title]
@@ -97,7 +99,7 @@ class Update:
     def update(self, key, value, database, collection_title):
         
         # connect to MongoDB
-        client_connect = "mongodb+srv://wesley:{}@stock-analytics.vmxv5.mongodb.net/{}?retryWrites=true&w=majority".format(self.password, collection_title)
+        client_connect = "mongodb+srv://wesley:{}@stock-analytics.vmxv5.mongodb.net/{}?retryWrites=true&w=majority".format(self.s.decrypt(self._admin), collection_title)
         cluster = MongoClient(client_connect)
         
         # Convert to JSON
@@ -164,7 +166,7 @@ class Update:
         collection_title = 'Live_Price'
         
         # connect to MongoDB
-        client_connect = "mongodb+srv://wesley:{}@stock-analytics.vmxv5.mongodb.net/{}?retryWrites=true&w=majority".format(self.password, collection_title)
+        client_connect = "mongodb+srv://wesley:{}@stock-analytics.vmxv5.mongodb.net/{}?retryWrites=true&w=majority".format(self.s.decrypt(self._admin), collection_title)
         cluster = MongoClient(client_connect)
         db = cluster[database_title]
         collection = db[collection_title]
@@ -286,7 +288,7 @@ class Update:
     def post(self, key, value, database, collection):
         
         # connect to MongoDB
-        client_connect = "mongodb+srv://wesley:{}@stock-analytics.vmxv5.mongodb.net/{}?retryWrites=true&w=majority".format(self.password, collection)
+        client_connect = "mongodb+srv://wesley:{}@stock-analytics.vmxv5.mongodb.net/{}?retryWrites=true&w=majority".format(self.s.decrypt(self._admin), collection)
         cluster = MongoClient(client_connect)
         
         # Convert to JSON
@@ -329,8 +331,4 @@ class Update:
             
             time.sleep(.5)
         
-        print('Sucess\n')
-        
-u = Update(['msft','aapl','tsla','amzn','ibm','intc','nvda'])
-
-u.data_capture()             
+        print('Sucess\n')           

@@ -9,7 +9,7 @@
 
 import getpass
 from cryptography.fernet import Fernet
-from _secret import Secure_Hash
+from .secret import Secure_Hash
 
 class Security:
     

@@ -8,10 +8,10 @@
     
 """
 
-from security import Security
-from company import Company
-from market import Market
-from visualize import Visualize
+from .security import Security
+from .company import Company
+from .market import Market
+from .visualize import Visualize
 import getpass
 
 class Dashboard:
