@@ -1,5 +1,5 @@
 # Stock-Market-Analytics
-System for live/historical stock market analysis and visualization. <br><br>
+Python library for live/historical stock market analysis and visualization. <br><br>
 `pip install Market-Analytics`
 - Live stock market dashboard 
 - Access and analyze company information/financials
