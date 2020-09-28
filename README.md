@@ -16,6 +16,4 @@ Features in Development:
 - Machine learning models for predictive analytics
 - Flask REST API and web app
 
-![image text](https://cloud.githubusercontent.com/assets/711743/25648417/57cd2c0c-2fe9-11e7-8753-b60ea2656faf.png)
-
 ![alt text](https://github.com/wesleyLaurence/Stock-Market-Analytics/blob/master/data/stock-prices.png?raw=true)
