@@ -1,5 +1,5 @@
 # Stock-Market-Analytics
-System for live/historical stock market analysis and visualization. 
+System for live/historical stock market analysis and visualization. <br>
 `pip install Market-Analytics`
 - Access and analyze company information/financials
 - Integrated with MongoDB Atlas cloud database
