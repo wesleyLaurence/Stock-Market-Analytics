@@ -15,3 +15,5 @@ Features in Development:
 - Twitter sentiment analysis
 - Machine learning models for predictive analytics
 - Flask REST API and web app
+
+![alt text](https://github.com/wesleylaurence/Stock-Market-Analytics/edit/master/data/stock-prices.png?raw=true)
