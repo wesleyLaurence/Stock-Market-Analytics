@@ -1,5 +1,6 @@
 # Stock-Market-Analytics
 System for live/historical stock market analysis and visualization. 
+`pip install Market-Analytics`
 - Access and analyze company information/financials
 - Integrated with MongoDB Atlas cloud database
 - Visualize stock prices in real time using Jupyter Notebook
