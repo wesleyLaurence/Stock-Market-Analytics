@@ -3,7 +3,7 @@ Python library for live/historical stock market analysis and visualization. <br>
 `pip install Market-Analytics`
 - Live stock market dashboard (Jupyter Notebook)
 - Access company information and financials
-- Integrated with MongoDB Atlas cloud database
+- Integrated with MongoDB Atlas cloud NoSQL database
 - Extract Data From:
     * Yahoo_Finance
     * Wikipedia 
